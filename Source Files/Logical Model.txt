@@ -1,0 +1,52 @@
+admin
+-
+login PK varchar(32)
+password varchar(128)
+name varchar(64)
+description varchar(512)
+picture varchar(256)
+contact varchar(128)
+
+portifolio
+-
+link PK varchar(256)
+date timestamp
+highlight boolean
+owner varchar(32) FK >- admin.login
+
+event
+-
+name PK varchar
+description varchar
+start timestamp
+end timestamp
+banner varchar(256)
+
+user
+-
+email PK varchar(128)
+password varchar(128)
+name varchar(64)
+phone int
+
+review
+-
+id PK serial
+rating smallint
+description varchar(512)
+date timestamp
+owner varchar(128) FK >- user.email
+
+budget
+-
+id PK serial
+owner varchar(128) FK >- user.email
+size varchar(64)
+spot varchar(128)
+ref1 varchar(256)
+ref2 NULL varchar(256)
+ref3 NULL varchar(256)
+ref4 NULL varchar(256)
+ref5 NULL varchar(256)
+delegate varchar(32) FK >- admin.login
+price float(2)
