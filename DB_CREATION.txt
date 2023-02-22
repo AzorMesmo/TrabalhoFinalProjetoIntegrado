@@ -1,0 +1,74 @@
+-- DROP TABLE admins, users, budgets, portfolios, reviews, events;
+
+CREATE TABLE IF NOT EXISTS public.admins
+(
+	login VARCHAR(32),
+	password VARCHAR(128) NOT NULL,
+	name VARCHAR(64) NULL,
+	description VARCHAR(512) NULL,
+	picture VARCHAR(256) NULL,
+	contact VARCHAR(128) NULL,
+	CONSTRAINT pk_admin PRIMARY KEY (login)
+);
+
+CREATE TABLE IF NOT EXISTS public.users
+(
+	email VARCHAR(128),
+	password VARCHAR(128) NOT NULL,
+	name VARCHAR(64) NOT NULL,
+	phone INT NOT NULL,
+	CONSTRAINT pk_user PRIMARY KEY (email)
+);
+
+CREATE TABLE IF NOT EXISTS public.budgets
+(
+	id SERIAL,
+	owner VARCHAR(128) NOT NULL,
+	size VARCHAR(64) NOT NULL,
+	spot VARCHAR(128) NOT NULL,
+	ref_1 VARCHAR(256) NOT NULL,
+	ref_2 VARCHAR(256) NULL,
+	ref_3 VARCHAR(256) NULL,
+	ref_4 VARCHAR(256) NULL,
+	ref_5 VARCHAR(256) NULL,
+	delegate VARCHAR(32) NULL,
+	price FLOAT(2) NULL,
+	CONSTRAINT pk_budget PRIMARY KEY (id),
+	CONSTRAINT fk_budget_owner FOREIGN KEY (owner) REFERENCES users (email),
+	CONSTRAINT fk_budget_delegate FOREIGN KEY (delegate) REFERENCES admins (login)
+);
+
+CREATE TABLE IF NOT EXISTS public.portfolios
+(
+	link VARCHAR(256),
+	date TIMESTAMP NOT NULL,
+	highlight BOOLEAN NOT NULL,
+	owner VARCHAR(32) NOT NULL,
+	CONSTRAINT pk_portfolio PRIMARY KEY (link),
+	CONSTRAINT fk_portfolio_owner FOREIGN KEY (owner) REFERENCES admins (login)
+);
+
+CREATE TABLE IF NOT EXISTS public.reviews
+(
+	id SERIAL,
+	rating SMALLINT NOT NULL,
+	description varchar(512) NULL,
+	date TIMESTAMP NOT NULL,
+	owner VARCHAR(128) NOT NULL,
+	CONSTRAINT pk_review PRIMARY KEY (id),
+	CONSTRAINT fk_review_owner FOREIGN KEY (owner) REFERENCES users (email)
+);
+
+CREATE TABLE IF NOT EXISTS public.events
+(
+	name VARCHAR(128),
+	description varchar(512) NOT NULL,
+	t_start TIMESTAMP NOT NULL,
+	t_end TIMESTAMP NULL,
+	CONSTRAINT pk_event PRIMARY KEY (name)
+);
+
+INSERT INTO admins (login, password) VALUES ('admin', 'admin');
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA "public" to seivabruta;
+GRANT SELECT, USAGE, UPDATE ON ALL SEQUENCES IN SCHEMA "public" to seivabruta;
