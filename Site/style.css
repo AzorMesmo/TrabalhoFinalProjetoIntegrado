@@ -9,64 +9,41 @@ button img{
   
 /*dropdown*/
 
-.navbar {
-    overflow: hidden;
-}
-  
-.navbar a {
-    float: left;
-    font-size: 16px;
-    color: #8F85A6;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-  
-.dropdown {
-    float: left;
-    overflow: hidden;
-}
-  
-.dropdown .dropbtn {
-    font-size: 16px;  
+.form-dropdown {
+    display: inline-block;
+    border-radius: 5px;
     border: none;
-    outline: none;
-    color: #8F85A6;
-    padding: 14px 16px;
-    background-color: #281D40;
-    font-family: inherit;
-    margin: 0;
-}
-  
-.navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: grey;
-}
-  
-.dropdown-content {
-    display: none;
-    position: fixed;
-    background-color: #8F85A6;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-  
-.dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: white;
     text-align: left;
 }
   
-.dropdown-content a:hover {
-    background-color: #8F85A6;
+.select-dropdown {
+    padding: 8px 38px 8px 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    color: #7c7c7c;
 }
   
-.dropdown:hover .dropdown-content {
-    display: block;
+.select-dropdown::-ms-expand {
+    display: none;
 }
+  
+.select-dropdown option {
+    font-size: 16px;
+    color: #000000;
+}
+  
+.select-dropdown:focus {
+    outline: none;
+    border-color: #6a5acd;
+}  
 
 /*menu*/
 
@@ -221,14 +198,16 @@ nav li:nth-child(5) a {
     cursor: pointer;
 }
 
-/*login */
+/*login / cadastro / orçamento*/
 .login-screen {
+    margin-top: -600px;
+    margin-left: 30%;
+    align-content: center;
+    transition: transform 1s ease-in-out;
     background-color: #f7e2f5;
     border-radius: 10px;
     padding: 20px;
     max-width: 400px;
-    margin: 0 auto;
-    margin-top: 70px;
     text-align: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
@@ -246,7 +225,7 @@ nav li:nth-child(5) a {
     letter-spacing: 0.05em;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="number"], input[type="password"] {
     padding: 10px;
     border-radius: 5px;
     border: none;
@@ -270,3 +249,22 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #8F85A6;
 }
+
+.login-screen #ref {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.login-screen button{
+    border: 0;
+    background:none;
+}
+
+#inicial {
+    margin-top: -400px;
+    transition: transform 1s ease-in-out;
+    background-color:#8F85A6;
+}
+  
