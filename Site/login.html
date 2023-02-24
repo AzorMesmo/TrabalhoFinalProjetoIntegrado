@@ -7,27 +7,16 @@
         <title>Login|SeivaBrutaTattoo</title>
     </head>
     <body>
-        <form>
-            <h1>Login</h1>
-            <label>Email:</label>
-            <input type="email" placeholder="Email"><br>
-            <label>Senha:</label>
-            <input type="password" placeholder="Senha"><br>
-            <button>Login</button>
-            <button>fazer cadastro</button><br><br>
-
-            <label>Nome:</label>
-            <input type="text" placeholder="nome"><br>
-            <label>Sobrenome:</label>
-            <input type="text" placeholder="sobrenome"><br>
-            <label>Telefone:</label>
-            <input type="tel" placeholder="telefone"><br>
-            <label>Email:</label>
-            <input type="email" placeholder="Email"><br>
-            <label>Senha:</label>
-            <input type="password" placeholder="Senha"><br>
-            <label>Confirmar senha:</label>
-            <input type="password" placeholder="Senha"><br>
-        </form>
+        <div class="login-screen">
+            <img src="src/icon.png">
+            <h1>Login:</h1>
+            <form>
+              <input type="text" placeholder="E-mail" required>
+              <input type="password" placeholder="Senha" required>
+              <input type="submit" value="Entrar">
+              <a href="cadastrar.html">Ainda não possui conta?</a>
+            </form>
+          </div>
+          <script src="script.js"></script>
     </body>
 </html>

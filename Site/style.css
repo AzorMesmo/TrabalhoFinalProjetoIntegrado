@@ -1,8 +1,14 @@
+body{
+    background-color:#0D0D0D;
+}
+
 button img{
     width: 30px;
     height: 30px;
 }
   
+/*dropdown*/
+
 .navbar {
     overflow: hidden;
 }
@@ -10,7 +16,7 @@ button img{
 .navbar a {
     float: left;
     font-size: 16px;
-    color: white;
+    color: #8F85A6;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -25,9 +31,9 @@ button img{
     font-size: 16px;  
     border: none;
     outline: none;
-    color: white;
+    color: #8F85A6;
     padding: 14px 16px;
-    background-color: purple;
+    background-color: #281D40;
     font-family: inherit;
     margin: 0;
 }
@@ -39,7 +45,7 @@ button img{
 .dropdown-content {
     display: none;
     position: fixed;
-    background-color: #f9f9f9;
+    background-color: #8F85A6;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -55,9 +61,212 @@ button img{
 }
   
 .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: #8F85A6;
 }
   
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+/*menu*/
+
+nav {
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+  
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+  
+nav li {
+    float: left;
+    border-right: 1px solid #8F85A6;
+    float: right;
+}
+
+#logo {
+    margin: -10px;
+    border: none;
+    position: sticky;
+    float: left;
+}
+
+#logo img {
+    height: 40px;
+}
+  
+nav a {
+    display: block;
+    color: #8F85A6;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px;
+    font-weight: bolder;
+}
+  
+nav a:hover {
+    background-color: #1E0F40;
+}
+  
+nav a.active {
+    background-color: #8F85A6;
+    color: white;
+}
+  
+nav a:active {
+    background-color: #8F85A6;
+}
+  
+nav a:focus {
+    outline: none;
+}
+  
+nav li:nth-child(1) a {
+    -webkit-animation: slideInDown 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+  
+nav li:nth-child(2) a {
+    -webkit-animation: slideInDown 0.6s 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+  
+nav li:nth-child(3) a {
+    -webkit-animation: slideInDown 0.6s 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+  
+nav li:nth-child(4) a {
+    -webkit-animation: slideInDown 0.6s 0.45s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 0.45s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+nav li:nth-child(5) a {
+    -webkit-animation: slideInDown 0.6s 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+/*portfolio*/
+
+.port:nth-child(1) .perfil{
+    -webkit-animation: slideInDown 0.6s 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.port button:nth-child(2) .perfil{
+    -webkit-animation: slideInDown 0.6s 1.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 1.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.port ul img{
+    -webkit-animation: slideInDown 0.6s 0s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 0s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+  
+@-webkit-keyframes slideInDown {
+    0% {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+}
+  
+@keyframes slideInDown {
+    0% {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%);
+      opacity: 0;
+    }
+}
+
+.port{
+    margin-top: 50px;
+    position:static;
+}
+
+.perfil{
+    padding-left: 90%;
+    height: 150px;
+    width: 150px;
+    margin: 100px;
+}
+
+.portfolio{
+    height: 100px;
+    width: 100px;
+    padding: 100px;
+}
+
+.portp{
+    border: 0px;
+    border-radius: 50%;
+    background-color: inherit;
+}
+
+.portp:hover{
+    cursor: pointer;
+}
+
+/*login */
+.login-screen {
+    background-color: #f7e2f5;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 70px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.login-screen img{
+    width: 150px;
+    padding-top: 50px;
+}
+
+.login-screen h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: bolder;
+    color: #1E0F40;
+    letter-spacing: 0.05em;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    width: 95%;
+}
+  
+input[type="submit"] {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #281D40;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: 90%;
+}
+  
+input[type="submit"]:hover {
+    background-color: #8F85A6;
 }

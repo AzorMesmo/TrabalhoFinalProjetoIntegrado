@@ -3,12 +3,42 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+        <script src="script.js"></script>
         <link rel="icon" href="src/icon.png" type="image/png">
         <title>Portfolio|SeivaBrutaTattoo</title>
     </head>
     <body>
-
-        <h1>This is a potfolio</h1>
-
+        <div class="port">
+            <button class="portp" onclick="mostrarLista()">
+                <img class="perfil" src="src/pessoa.png">
+            </button>
+            <button class="portp" onclick="mostrarLista()">
+                <img class="perfil" src="src/pessoa.png">
+            </button>
+            <ul id="minhaLista" style="display:none;">  
+                <img class="portfolio" src="src/addimg.png">
+                <img class="portfolio" src="src/addimg.png">
+                <img class="portfolio" src="src/addimg.png">
+                <img class="portfolio" src="src/addimg.png">
+                <img class="portfolio" src="src/addimg.png">
+                <img class="portfolio" src="src/addimg.png">
+                <img class="portfolio" src="src/addimg.png">
+                <img class="portfolio" src="src/addimg.png">
+                <img class="portfolio" src="src/addimg.png">
+                <img class="portfolio" src="src/addimg.png">
+                <img class="portfolio" src="src/addimg.png">
+                <img class="portfolio" src="src/addimg.png">
+            </ul>
+        </div>    
+        
+        <nav>
+            <ul>
+                <li id="logo"><a href="index.html"><img src="src/icon.png"></a></li>
+                <li><a href="eventos.html">EVENTOS</a></li>
+                <li><a href="orçamentos.html">PEDIR ORÇAMENTO</a></li>
+                <li><a href="portfolio.html">PORTIFÓLIO</a></li>
+                <li><a href="login.html">LOGIN</a></li>
+            </ul>
+        </nav>
     </body>
 </html>
