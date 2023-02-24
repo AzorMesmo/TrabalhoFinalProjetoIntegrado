@@ -4,35 +4,36 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
         <link rel="icon" href="src/icon.png" type="image/png">
+        <script src="script.js"></script>
         <title>Solicitar Orcamento|SeivaBrutaTattoo</title>
     </head>
     <body>
-        <div class="navbar">
-            <h1>Orçamento</h1>
-            <label>Tamanho em cm:</label>
-            <input type="number" placeholder="Tamanho"><br>
-            <label>local do corpo:</label>
-            <input type="text" placeholder="local"><br>
-            <label>referencia:</label>
-            <button><img src="src/img.png"></button>
-            <div class="dropdown">
-                <button class="dropbtn">tatuador:</button>
-                <div class="dropdown-content">
-                    <a>Alexandre</a>
-                    <a>Karine</a>
-                    <a>Indefinido</a>
-                </div>
-            </div> <br><br>
-            <button>Solicitar Orçamento</button>
-        </div>
+        <div class="login-screen">
+            <img src="src/icon.png">
+            <h1>Solicite seu orçamento:</h1>
+            <input type="number" placeholder="Tamanho da tatuagem">
+            <input type="text" placeholder="Local do corpo">
+            <form class="form-dropdown">
+                <select id="campo" name="campo" class="select-dropdown">
+                    <option value="nome">Selecione o tatuador:</option>
+                    <option value="email">Alexandre Penteado</option>
+                    <option value="telefone">Karine Duarte</option>
+                </select>
+            </form>
+            <button><img id="ref" src="src/img.png"></button>
+            <input type="submit" value="Solicitar Orçamento">
+          </div>
 
         <nav>
-            <ul>
-              <li><a href="eventos.html">Eventos</a></li>
-              <li><a href="orçamentos.html">Pedir Orçamento</a></li>
-              <li><a href="portfolio.html">Portfolio</a></li>
-              <li><a href="login.html">Login</a></li>
-            </ul>
+            <nav>
+                <ul>
+                    <li id="logo"><a href="index.html"><img src="src/icon.png"></a></li>
+                    <li><a href="eventos.html">EVENTOS</a></li>
+                    <li><a href="orçamentos.html">SOLICITAR ORÇAMENTO</a></li>
+                    <li><a href="portfolio.html">PORTIFÓLIO</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                </ul>
+            </nav>
         </nav>
     </body>
 </html>

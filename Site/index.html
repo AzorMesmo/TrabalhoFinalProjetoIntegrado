@@ -4,18 +4,71 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
         <link rel="icon" href="src/icon.png" type="image/png">
+        <script src="script.js"></script>
         <title>SeivaBrutaTattoo</title>
     </head>
     <body>
-        <ul>
-            <li><a href="eventos.html">Eventos</a></li>
-            <li><a href="orçamentos.html">Solicitar orçamentos</a></li>
-            <li><a href="portfolio.html">visualizar portfólio</a></li>
-          </ul>
-          <h1>Tattos em destaque :)</h1>
-          <h1>sobre tatuadores</h1>
-          <h1>avaliar</h1>
-          <input type="text" placeholder="avaliação"><br>
-          <input type="submit" value="Submit">
+        <div id="inicial">
+            <img class="temp" src="src/template.jpg">
+            <div id="galeria">
+                <img src="src/addimg.png" alt="Imagem 1">
+                <img src="src/addimg.png" alt="Imagem 2">
+                <img src="src/addimg.png" alt="Imagem 3">
+                <img src="src/addimg.png" alt="Imagem 4">
+                <img src="src/addimg.png" alt="Imagem 5">
+                <img src="src/addimg.png" alt="Imagem 6">
+                <img src="src/addimg.png" alt="Imagem 7">
+                <img src="src/addimg.png" alt="Imagem 8">
+                <img src="src/addimg.png" alt="Imagem 9">
+                <img src="src/addimg.png" alt="Imagem 10">
+            </div>
+
+            <div class="container">
+                <div class="item">
+                  <img class="tatuador" src="src/pessoa.png" alt="Foto 1">
+                  <div class="content">
+                    <h2>Nome do tatuador</h2>
+                    <p>Descrição sobre o tatuador.</p>
+                  </div>
+                </div>
+                <div class="item">
+                    <img class="tatuador" src="src/pessoa.png" alt="Foto 2">
+                    <div class="content">
+                        <h2>Nome do tatuador</h2>
+                        <p>Descrição sobre o tatuador.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="avaliacoes">
+                <h1 id="avl">Avaliações de clientes:</h1>
+                <div class="avaliacao">
+                    <img src="src/foto.jpg">
+                    <div class="aval">
+                        <h3>Nome avaliador</h3>
+                        <p>Avaliação...</p>
+                    </div>
+                </div>
+                <div class="avaliacao">
+                    <img src="src/foto.jpg">
+                    <div class="aval">
+                        <h3>Nome avaliador</h3>
+                        <p>Avaliação...</p>
+                    </div>
+                </div>
+                <input type="text" placeholder="Deixe sua avaliação...">
+                <input type="submit" value="Avaliar">
+            </div>
+        </div>
+          
+
+        <nav>
+            <ul>
+                <li id="logo"><a href="index.html"><img src="src/icon.png"></a></li>
+                <li><a href="eventos.html">EVENTOS</a></li>
+                <li><a href="orçamentos.html">SOLICITAR ORÇAMENTO</a></li>
+                <li><a href="portfolio.html">PORTIFÓLIO</a></li>
+                <li><a href="login.html">LOGIN</a></li>
+            </ul>
+        </nav>
     </body>
 </html>
