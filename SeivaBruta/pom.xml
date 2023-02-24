@@ -9,13 +9,13 @@
 	<!-- Nome completo da aplicação (indicado usar mesma organização de pastas) -->
     <groupId>br.edu</groupId>
     <!-- Nome da aplicação (localhost:8080/projeto) -->
-    <artifactId>projeto</artifactId>
+    <artifactId>seivabruta</artifactId>
     <!-- Versão da Aplicação (retira-se o SNAPSHOT ao colocar sistema em produção) -->
     <version>0.0.1-SNAPSHOT</version>
     <!-- Formato do artefato -->
     <packaging>war</packaging>
     <name>Projeto para o CCR Programação II</name>
-    <description>Esta aplicação serve como modelo de aprendizado para o desenvolvimento de aplicações Web</description>
+    <description>Estudio De Tatuagem - Seiva Bruta Tattoo</description>
 
 	<!-- Descrição da licença de uso -->
     <url>https://cc.uffs.edu.br</url>
