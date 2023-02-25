@@ -21,7 +21,6 @@
     	<!-- Define formulário para Dialogs (elementos estilo Pop-up) -->
     	<!-- Lembre-se que o uso de formulários só não é necessário para elementos que são estáticos (sem ação, animação, conteúdo dinâmico) -->     
         <h:form id="dialogs">
-        	<!--
         	<p:growl id="messages"/>
 	        <p:dialog header="Novo Usuário" showEffect="fade" modal="true" widgetVar="usuarioDialog" responsive="true">   
 	            <p:outputPanel id="usuario-conteudo-dialog" class="ui-fluid">
@@ -54,19 +53,16 @@
 	                <p:commandButton value="Cancelar" icon="pi pi-times" onclick="PF('usuarioDialog').hide()" class="ui-button-secondary" type="button" />
 	            </f:facet>
 	        </p:dialog>
-
 	        <p:confirmDialog widgetVar="removerUsuarioDialog" showEffect="fade" width="300"
 	            message="Desejar remover este usuário?" header="Confirm" severity="warn">
 	            <p:commandButton value="Sim" icon="pi pi-check" actionListener="#{cadastroUsuarioController.remover}"
 	                process="@this" oncomplete="PF('removerUsuarioDialog').hide()" />
 	            <p:commandButton value="Não" type="button" styleClass="ui-button-secondary" icon="pi pi-times" onclick="PF('removerUsuarioDialog').hide()" />
 	        </p:confirmDialog>
-		-->
         </h:form>     
         
         <!-- Define formulário principal -->  
         <h:form id="form">
-        	<!--
             <p:growl id="messages" showDetail="true" />
             
             <p:toolbar>
@@ -94,28 +90,25 @@
 	            </p:column>
 
 	            <p:column>
-	            -->
 	            	<!-- Cuidado com botões que usam AJAX -->
 	            	<!-- process indica qual elemento do formulário será processado (padrão é todo o formulário), @this é só o próprio elemento -->
 	            	<!-- update informa qual elemento será atualizado (renderizado novamente) ao finalizar ação -->
 	            	<!-- é possível disparar ações para diversos eventos Javascript, deve-se cuidar a ordem da resolução dos mesmos -->
 	            	<!-- como regra geral a prioridade de processamento é a seguinte (eventos on... - oncomplete, onclick, onblur, actionListener, action, oncomplete no final) -->
 	            	<!-- PF é usado para chamada de função Javascript de algum elemento do Primefaces -->
-	            	<!--
-	                <p:commandButton icon="pi pi-pencil" update=":dialogs:usuario-conteudo-dialog" 
+	                <h:commandButton icon="pi pi-pencil" update=":dialogs:usuario-conteudo-dialog" 
 	                    oncomplete="PF('usuarioDialog').show()" action="#{cadastroUsuarioController.alterar}"
 	                    styleClass="edit-button rounded-button ui-button-success" process="@this">
 	                    <f:setPropertyActionListener value="#{us}" target="#{cadastroUsuarioController.usuario}" />
 	                    <p:resetInput target=":dialogs:usuario-conteudo-dialog" />
-	                </p:commandButton>
-	                <p:commandButton class="ui-button-warning rounded-button" icon="pi pi-trash"
+	                </h:commandButton>
+	                <h:commandButton class="ui-button-warning rounded-button" icon="pi pi-trash"
 	                                 process="@this" oncomplete="PF('removerUsuarioDialog').show()">
 	                    <f:setPropertyActionListener value="#{us}" target="#{cadastroUsuarioController.usuario}" />
-	                </p:commandButton>
+	                </h:commandButton>
 	            </p:column>
 	
 	        </p:dataTable>
-	    -->
 	    </h:form>
     
     </ui:define>

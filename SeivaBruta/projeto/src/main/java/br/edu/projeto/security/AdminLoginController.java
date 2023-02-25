@@ -21,12 +21,12 @@ import br.edu.projeto.model.Admins;
 
 @Named 
 @RequestScoped
-public class LoginController {
+public class AdminLoginController {
 
 	@Inject
     private FacesContext facesContext;
 
-    @Inject
+	@Inject
     private SecurityContext securityContext;
 
     private Admins admin;

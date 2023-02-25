@@ -12,15 +12,15 @@
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputLabel for="login" value="Login:" />
-                <h:inputText id="login" value="#{loginController.admin.login}" />
+                <h:inputText id="login" value="#{adminLoginController.admin.login}" />
 
 				<h:outputLabel for="password" value="Senha:" />
-                <h:inputText id="password" value="#{loginController.admin.password}" />	
+                <h:inputText id="password" value="#{adminLoginController.admin.password}" />	
             </h:panelGrid>
 			
             <p>
                 <h:panelGrid columns="2">
-                    <h:commandButton value="Login" action="#{loginController.login}"/>
+                    <h:commandButton value="Login" action="#{adminLoginController.login}"/>
                     <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning" globalOnly="true" />
                 </h:panelGrid>
             </p>

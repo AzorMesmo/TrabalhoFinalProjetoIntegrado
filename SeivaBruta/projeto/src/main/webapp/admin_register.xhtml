@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="/WEB-INF/templates/default.xhtml">
+    
+    <ui:define name="content">   
+        <h:form id="dialogs">
+        	<p:growl id="messages"/>
+        	
+	        <p:dialog header="Novo Administrador" showEffect="fade" modal="true" widgetVar="adminDialog" responsive="true">   
+	            <p:outputPanel id="admin-content-dialog" class="ui-fluid">
+	                <p:outputPanel rendered="#{not empty adminRegisterController.admin}">
+	                    <div class="field">
+	                        <p:outputLabel for="login">Login</p:outputLabel>
+	                        <p:inputText id="login" value="#{adminRegisterController.admin.login}" required="true" />
+	                    </div>
+	                    <div class="field">
+	                        <p:outputLabel for="password">Senha</p:outputLabel>
+	                        <p:password id="password" value="#{adminRegisterController.admin.password}" toggleMask="true" redisplay="true"
+	                        feedback="true" weakLabel="Senha Fraca" goodLabel="Senha Rasoável" strongLabel="Senha Forte" validatorMessage="Informe a Senha"/>
+	                    </div>
+	                </p:outputPanel>
+	            </p:outputPanel>
+	
+	            <f:facet name="footer">
+	                <p:commandButton value="Salvar" icon="pi pi-check" actionListener="#{adminRegisterController.save}"
+	                    update="admin-content-dialog dialogs:messages" process="admin-content-dialog @this" />
+	                <p:commandButton value="Cancelar" icon="pi pi-times" onclick="PF('adminDialog').hide()" class="ui-button-secondary" type="button" />
+	            </f:facet>
+	        </p:dialog>
+	        
+	        <p:confirmDialog widgetVar="deleteAdminDialog" showEffect="fade" width="300"
+	            message="Desejar remover este Administrador?" header="Confirm" severity="warn">
+	            <p:commandButton value="Sim" icon="pi pi-check" actionListener="#{adminRegisterController.delete}"
+	                process="@this" oncomplete="PF('deleteAdminDialog').hide()" />
+	            <p:commandButton value="Não" type="button" styleClass="ui-button-secondary" icon="pi pi-times" onclick="PF('deleteAdminDialog').hide()" />
+	        </p:confirmDialog>
+        </h:form>     
+        
+        <h:form id="form">
+            <p:growl id="messages" showDetail="true" />
+            
+            <p:toolbar>
+	            <p:toolbarGroup>
+	                <p:commandButton value="Novo" icon="pi pi-plus" actionListener="#{adminRegisterController.register}"
+	                    update=":dialogs:admin-content-dialog" oncomplete="PF('adminDialog').show()"
+	                    styleClass="ui-button-success" style="margin-right: .5rem">
+	                    <p:resetInput target=":dialogs:admin-content-dialog" />
+	                </p:commandButton>
+	            </p:toolbarGroup>
+	        </p:toolbar>
+	
+	        <p:dataTable id="dt-admins" widgetVar="dtAdmins" var="us" value="#{adminRegisterController.adminList}">
+	            <f:facet name="header">
+	                <div>
+	                    <span style="font-weight: bold">Administradores</span>
+	                </div>
+	            </f:facet>
+	
+	            <p:column headerText="Login" sortBy="#{us.login}">
+	                <h:outputText value="#{us.login}" />
+	            </p:column>
+
+	            <p:column>
+	                <h:commandButton icon="pi pi-pencil" update=":dialogs:admin-content-dialog" 
+	                    oncomplete="PF('adminDialog').show()" action="#{adminRegisterController.alter}"
+	                    styleClass="edit-button rounded-button ui-button-success" process="@this">
+	                    <f:setPropertyActionListener value="#{us}" target="#{adminRegisterController.admin}" />
+	                    <p:resetInput target=":dialogs:admin-content-dialog" />
+	                </h:commandButton>
+	                <h:commandButton class="ui-button-warning rounded-button" icon="pi pi-trash"
+	                                 process="@this" oncomplete="PF('deleteAdminDialog').show()">
+	                    <f:setPropertyActionListener value="#{us}" target="#{adminRegisterController.admin}" />
+	                </h:commandButton>
+	            </p:column>
+	
+	        </p:dataTable>
+	    </h:form>
+    
+    </ui:define>
+</ui:composition>

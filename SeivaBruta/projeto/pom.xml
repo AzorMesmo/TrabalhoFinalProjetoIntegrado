@@ -14,8 +14,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <!-- Formato do artefato -->
     <packaging>war</packaging>
-    <name>Projeto para o CCR Programação II</name>
-    <description>Esta aplicação serve como modelo de aprendizado para o desenvolvimento de aplicações Web</description>
+    <name>Seiva Bruta</name>
+    <description>Tatoo Studio</description>
 
 	<!-- Descrição da licença de uso -->
     <url>https://cc.uffs.edu.br</url>

@@ -48,4 +48,12 @@ public class AdminsDAO{
 		em.remove(em.getReference(Admins.class, admin.getLogin()));
 	}
 	
+	public boolean isAdmin(String login) {
+		if (em.find(Admins.class, login) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 }
