@@ -47,3 +47,4 @@ for (var i = 0; i < imagens.length; i++) {
     this.classList.remove('grande');
   });
 }
+

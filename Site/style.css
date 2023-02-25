@@ -396,3 +396,21 @@ h3{
     font-family: Arial, sans-serif;
     color: #ccc;
 }
+
+.erro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.erro h1{
+    color: #ccc;
+}
+
+.erro img{
+    width: 100px;
+    display: inline-block
+}
