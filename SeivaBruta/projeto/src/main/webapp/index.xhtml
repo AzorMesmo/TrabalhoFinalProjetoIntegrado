@@ -8,12 +8,13 @@
     <ui:define name="content">
 
 	<h:head>
-        <meta charset="UTF-8"></meta>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="screen"></link>
         <link rel="icon" href="resources/img/icon.png" type="image/png"></link>
         <script src="resources/js/script.js"></script>
-        <title>SeivaBrutaTattoo</title>
+        <title>SeivaBrutaTattoo</title>  
     </h:head>
+    
     <h:body>
         <div id="inicial">
             <img class="temp" src="resources/img/template.jpg"></img>
@@ -28,24 +29,28 @@
                 <img src="resources/img/adddimg.png" alt="Imagem 8"></img>
                 <img src="resources/img/adddimg.png" alt="Imagem 9"></img>
                 <img src="resources/img/adddimg.png" alt="Imagem 10"></img>
+                <button class="adminButton" style="display:none;">Editar Tatagens em Destaque</button>
             </div>
 
             <div class="container">
                 <div class="item">
-                  <img class="tatuador" src="resources/img/pessoa.png" alt="Foto 1"></img>
-                  <div class="content">
-                    <h2>Nome do tatuador</h2>
-                    <p>Descrição sobre o tatuador.</p>
-                  </div>
+                	<img class="tatuador" src="resources/img/pessoa.png" alt="Foto 1"></img>
+                	<div class="content">
+                    	<h2>Nome do tatuador</h2>
+                    	<p>Descrição sobre o tatuador.</p>
+                    	<button class="adminButton" style="display:none;">Editar Perfil</button>
+                	</div>
                 </div>
                 <div class="item">
                     <img class="tatuador" src="resources/img/pessoa.png" alt="Foto 2"></img>
                     <div class="content">
                         <h2>Nome do tatuador</h2>
                         <p>Descrição sobre o tatuador.</p>
+                        <button class="adminButton" style="display:none;">Editar Perfil</button>
                     </div>
                 </div>
             </div>
+            
             <div class="avaliacoes">
                 <h1 id="avl">Avaliações de clientes:</h1>
                 <div class="avaliacao">
@@ -54,6 +59,7 @@
                         <h3>Nome avaliador</h3>
                         <p>Avaliação...</p>
                     </div>
+                    <button class="adminButton" style="display:none;">Excluir</button>
                 </div>
                 <div class="avaliacao">
                     <img src="resources/img/foto.jpg"></img>
@@ -61,22 +67,12 @@
                         <h3>Nome avaliador</h3>
                         <p>Avaliação...</p>
                     </div>
+                    <button class="adminButton" style="display:none;">Excluir</button>
                 </div>
                 <input type="text" placeholder="Deixe sua avaliação..."></input>
                 <input type="submit" value="Avaliar"></input>
             </div>
         </div>
-          
-
-        <nav>
-            <ul>
-                <li id="logo"><a href="index.html"><img src="resources/img/icon.png"></img></a></li>
-                <li><a href="eventos.html">EVENTOS</a></li>
-                <li><a href="orçamentos.html">SOLICITAR ORÇAMENTO</a></li>
-                <li><a href="portfolio.html">PORTIFÓLIO</a></li>
-                <li><a href="login.html">LOGIN</a></li>
-            </ul>
-        </nav>
     </h:body>
 
     </ui:define>

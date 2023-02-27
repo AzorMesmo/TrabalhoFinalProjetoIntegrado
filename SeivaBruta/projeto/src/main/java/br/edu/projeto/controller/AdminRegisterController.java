@@ -38,7 +38,7 @@ public class AdminRegisterController implements Serializable {
 
     @PostConstruct
     public void init() {
-    	if (!adminDAO.isAdmin(this.facesContext.getExternalContext().getRemoteUser())) {
+    	if (!adminDAO.isAdmin(this.facesContext.getExternalContext().getRemoteUser())) { // Possivel Problema: getRemoteUser
     		try {
 				this.facesContext.getExternalContext().redirect("login-error.xhtml");
 			} catch (IOException e) {e.printStackTrace();}

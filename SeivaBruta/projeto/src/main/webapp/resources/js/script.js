@@ -1,7 +1,16 @@
 //mostra porfolio de cada tatuador
 
 function mostrarLista() {
-	var lista = document.getElementById("minhaLista");
+  var lista = document.getElementById("minhaLista");
+	if (lista.style.display === "none") {
+		lista.style.display = "block";
+	} else {
+		lista.style.display = "none";
+	}
+}
+
+function mostrarLista2() {
+  var lista = document.getElementById("minhaLista2");
 	if (lista.style.display === "none") {
 		lista.style.display = "block";
 	} else {
@@ -48,3 +57,19 @@ for (var i = 0; i < imagens.length; i++) {
   });
 }
 
+//testa se é adm
+
+window.addEventListener("load", function() {
+  // verifique se o usuário é um administrador!!!!!!!!!!!!!!!!!
+  var isAdmin = true;
+
+  // encontre o botão do administrador na página
+  var adminButtons = document.getElementsByClassName("adminButton");
+
+  // se o usuário for um administrador, exiba o botão do administrador
+  if (isAdmin) {
+    for (var i = 0; i < adminButtons.length; i++) {
+      adminButtons[i].style.display = "block";
+    }
+  }
+});

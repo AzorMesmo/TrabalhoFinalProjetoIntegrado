@@ -50,7 +50,7 @@ public class AdminLoginController {
 	    	        	(HttpServletResponse)facesContext.getExternalContext().getResponse(),
 	    	            AuthenticationParameters.withParams().credential(credential));
 	    	if (status.equals(AuthenticationStatus.SUCCESS))
-	    		facesContext.getExternalContext().redirect("default.xhtml");
+	    		facesContext.getExternalContext().redirect("index.xhtml");
 	    	else if (status.equals(AuthenticationStatus.SEND_FAILURE)) {
 	    		admin = new Admins();
 	    		try {

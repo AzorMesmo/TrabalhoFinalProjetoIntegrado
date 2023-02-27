@@ -6,9 +6,19 @@
     xmlns:h="http://java.sun.com/jsf/html"
     template="/WEB-INF/templates/default.xhtml">
     <ui:define name="content">
-    	<h:form>
-        	<h1>Página de Erro genérica</h1>
-        	<h:commandButton value="Voltar a página de login" action="login?faces-redirect=true"/>
-    	</h:form>
+   	
+   	<h:head>
+       <meta charset="UTF-8"></meta>
+       <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="screen"></link>
+       <link rel="icon" href="resources/img/icon.png" type="image/png"></link>
+       <title>ERRO | SeivaBrutaTattoo</title>
+   </h:head>
+   <h:body>
+       <div class="erro">
+           <img src="resources/img/error.png"></img>
+           <h1>Oops! Ocorreu um erro. :/</h1>
+       </div>
+   </h:body>
+    	
     </ui:define>
 </ui:composition>

@@ -188,7 +188,7 @@ nav li:nth-child(5) a {
     padding: 100px;
 }
 
-.portp{
+.portp{ /*centralizar isso*/
     border: 0px;
     border-radius: 50%;
     background-color: inherit;
@@ -200,14 +200,14 @@ nav li:nth-child(5) a {
 
 /*login / cadastro / orçamento*/
 .login-screen {
+    margin: auto;
     margin-top: -600px;
-    margin-left: 30%;
     align-content: center;
     transition: transform 1s ease-in-out;
     background-color: #f7e2f5;
     border-radius: 10px;
     padding: 20px;
-    max-width: 400px;
+    width: 30%;
     text-align: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
@@ -262,6 +262,12 @@ input[type="submit"]:hover {
     background:none;
 }
 
+@media screen and (max-width: 768px) {
+    .login-screen {
+        width: 90%;
+    }
+}
+
 #inicial {
     margin-top: 550px;
     transition: transform 1s ease-in-out;
@@ -293,7 +299,7 @@ input[type="submit"]:hover {
 /*sobre os tatuadores*/
 
 .container {
-    margin: 100px;
+    margin: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -321,17 +327,20 @@ input[type="submit"]:hover {
     justify-content: center;
 }
 
-h2 {
+.content h2 {
     color: #ccc;
     margin: 0;
     font-size: 24px;
     font-weight: bold;
+    margin: 15px;
 }
 
-p {
+.content p {
     color: #ccc;
-    margin: 0;
+    margin: 15px;
     font-size: 16px;
+    max-width: 200px;
+    text-align: justify;
 }
 
 /*avaliações*/
@@ -385,6 +394,11 @@ h3{
     background-color: #281D40;
 }
 
+.avaliacao p{
+    max-width: 50%;
+    color: #ccc;
+}
+
 /*titulo*/
 
 #titulo {
@@ -413,4 +427,28 @@ h3{
 .erro img{
     width: 100px;
     display: inline-block
+}
+  
+.adminButton{
+    width: 150px;
+    height: 60px;
+    background-color: #9d86bc00;
+    border-radius: 10%;
+    margin: 30px;
+    border: 2px solid #9d86bc;
+    color: #9d86bc;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.adminButton:hover{
+    background-color: #281D40;
+}
+
+.adminButton img{
+    border-radius: 0%;
+}
+
+#cad{ /*editar isso*/
+    background-color: #000000;
 }
