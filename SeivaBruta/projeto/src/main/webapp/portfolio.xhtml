@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    			xmlns:ui="http://java.sun.com/jsf/facelets"
+    			xmlns:f="http://java.sun.com/jsf/core"
+    			xmlns:h="http://java.sun.com/jsf/html"
+    			xmlns:p="http://primefaces.org/ui"
+    			template="/WEB-INF/templates/default.xhtml">		
+    <ui:define name="content">
+    
+    <h:head>
+        <meta charset="UTF-8"></meta>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="screen"></link>
+        <link rel="icon" href="resources/img/icon.png" type="image/png"></link>
+        <script src="resources/js/script.js"></script>
+        <title>Portfolio|SeivaBrutaTattoo</title>
+    </h:head>
+    
+    <h:body>
+    	<h:form id="dialogs">
+        	<p:growl id="messages"/>
+	        <p:dialog header="Adicionar Imagem" showEffect="fade" modal="true" widgetVar="portfolioDialog" responsive="true">   
+	            <p:outputPanel id="portfolio-dialog" class="ui-fluid">
+	                <p:outputPanel rendered="#{not empty registerAdminController.login}">
+	                    <div class="field">
+	                        <p:outputLabel for="link">Link</p:outputLabel>
+	                        <p:inputText id="link" value="#{portfolioRegisterController.portfolio.link}" required="true" />
+	                    </div>
+	                </p:outputPanel>
+	            </p:outputPanel>
+	
+	            <f:facet name="footer">
+	                <p:commandButton value="Enviar" icon="pi pi-check" actionListener="#{portfolioRegisterController.save}"
+	                    update="portfolio-dialog dialogs:messages" process="portfolio-dialog @this" />
+	                <p:commandButton value="Cancelar" icon="pi pi-times" onclick="PF('portfolioDialog').hide()" class="ui-button-secondary" type="button" />
+	            </f:facet>
+	        </p:dialog>
+        </h:form>
+   
+        <div class="port">
+            <button class="portp" onclick="mostrarLista()">
+                <img class="perfil" src="resources/img/pessoa.png"></img>
+            </button>
+            <button class="portp" onclick="mostrarLista2()">
+                <img class="perfil" src="resources/img/pessoa.png"></img>
+            </button>
+            <ul id="minhaLista" style="display:none;">
+                <h:form id="form">
+			        <p:dataTable id="dt-portfolio" widgetVar="dtPortfolio" var="port" value="#{portfolioDAO.listAll}">
+			            <p:column sortBy="#{port.date}">
+			            	<h:graphicImage class="portfolio" value="#{port.link}" />
+			            </p:column>
+			        </p:dataTable>
+			    </h:form>
+            </ul>
+            <ul id="minhaLista2" style="display:none;">  
+                <h:form id="form">
+			        <p:dataTable id="dt-portfolio" widgetVar="dtPortfolio" var="port" value="#{portfolioDAO.listAll}">
+			            <p:column sortBy="#{port.date}">
+			            	<h:graphicImage class="portfolio" value="#{port.link}" />
+			            </p:column>
+			        </p:dataTable>
+			    </h:form>
+            </ul>
+            <p:commandButton value="Adicionar Imagem" icon="pi pi-plus" actionListener="#{portfolioRegisterController.register}"
+	            update=":dialogs:portfolio-dialog" oncomplete="PF('portfolioDialog').show()" styleClass="ui-button-success"
+	            class="adminButton" style="display:none;">
+	            <p:resetInput target=":dialogs:portfolio-dialog" />
+	        </p:commandButton>
+        </div>
+    </h:body>
+    
+    </ui:define>
+</ui:composition>

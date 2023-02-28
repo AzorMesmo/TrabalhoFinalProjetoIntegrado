@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    			xmlns:ui="http://java.sun.com/jsf/facelets"
+    			xmlns:f="http://java.sun.com/jsf/core"
+    			xmlns:h="http://java.sun.com/jsf/html"
+    			template="/WEB-INF/templates/default.xhtml">		
+    <ui:define name="content">
+    
+    <h:head>
+        <meta charset="UTF-8"></meta>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="screen"></link>
+        <link rel="icon" href="resources/img/icon.png" type="image/png"></link>
+        <script src="resources/js/script.js"></script>
+        <title>Solicitar Orcamento|SeivaBrutaTattoo</title>
+    </h:head>
+    
+    <h:body>
+        <div class="login-screen">
+            <img src="resources/img/icon.png">
+            <h1>Solicite seu orçamento:</h1>
+            <input class="input" type="number" placeholder="Tamanho da tatuagem"></input>
+            <input class="input" type="text" placeholder="Local do corpo"></input>
+            <form class="form-dropdown">
+                <select id="campo" name="campo" class="select-dropdown">
+                    <option value="nome">Selecione o tatuador:</option>
+                    <option value="email">Alexandre Penteado</option>
+                    <option value="telefone">Karine Duarte</option>
+                </select>
+            </form>
+            <button><img id="ref" src="src/img.png"></button>
+            <input class="submit" type="submit" value="Solicitar Orçamento"></input>
+            <a href="view_budgets.xhtml"><button class="adminButton" id="orç">Verificar orçamentos</button></a>
+        </div>
+    </h:body>
+    
+    </ui:define>
+</ui:composition>

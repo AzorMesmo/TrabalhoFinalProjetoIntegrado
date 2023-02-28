@@ -3,7 +3,6 @@ package br.edu.projeto.security;
 import java.io.IOException;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -18,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.edu.projeto.model.Admins;
+import javax.enterprise.context.RequestScoped;
 
 @Named 
 @RequestScoped
@@ -64,7 +64,7 @@ public class AdminLoginController {
     
     public void logout() throws IOException {
     	facesContext.getExternalContext().invalidateSession();
-    	facesContext.getExternalContext().redirect("logout.xhtml");
+    	facesContext.getExternalContext().redirect("index.xhtml");
     }
     
 	public Admins getAdmin() {

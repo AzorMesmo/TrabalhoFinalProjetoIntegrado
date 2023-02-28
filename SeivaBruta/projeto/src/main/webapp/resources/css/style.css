@@ -170,31 +170,32 @@ nav li:nth-child(5) a {
     }
 }
 
-.port{
+.port{/*div*/
     margin-top: 50px;
     position:static;
 }
 
-.perfil{
-    padding-left: 90%;
-    height: 150px;
-    width: 150px;
-    margin: 100px;
-}
 
-.portfolio{
+.portfolio{/*img*/
     height: 100px;
     width: 100px;
     padding: 100px;
 }
 
-.portp{ /*centralizar isso*/
+.portp{ /*botao*/
     border: 0px;
     border-radius: 50%;
     background-color: inherit;
+    margin: 10%;
+    margin-left: 20%;
 }
 
-.portp:hover{
+.perfil{/*img*/
+    height: 150px;
+    width: 150px;
+}
+
+.perfil:hover{
     cursor: pointer;
 }
 
@@ -225,7 +226,7 @@ nav li:nth-child(5) a {
     letter-spacing: 0.05em;
 }
 
-input[type="text"], input[type="number"], input[type="password"] {
+.input {
     padding: 10px;
     border-radius: 5px;
     border: none;
@@ -233,7 +234,7 @@ input[type="text"], input[type="number"], input[type="password"] {
     width: 95%;
 }
   
-input[type="submit"] {
+.submit{
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
@@ -246,7 +247,7 @@ input[type="submit"] {
     width: 90%;
 }
   
-input[type="submit"]:hover {
+.submit:hover {
     background-color: #8F85A6;
 }
 
@@ -260,12 +261,6 @@ input[type="submit"]:hover {
 .login-screen button{
     border: 0;
     background:none;
-}
-
-@media screen and (max-width: 768px) {
-    .login-screen {
-        width: 90%;
-    }
 }
 
 #inicial {
@@ -288,7 +283,7 @@ input[type="submit"]:hover {
   
 #galeria img {
     width: 100%;
-    height: 270px;
+    height: 100%;
     transition: transform 0.3s ease-in-out;
 }
   
@@ -318,7 +313,6 @@ input[type="submit"]:hover {
     height: 150px;
     object-fit: cover;
     border-radius: 50%;
-    margin-right: 10px;
 }
 
 .content {
@@ -378,19 +372,19 @@ h3{
     color: #ccc;
 }
 
-.avaliacoes input{
+.avaliacoes .input{
     margin-top: 30px;
     width: 80%;
     height: 40px;
 }
 
-.avaliacoes input[type="submit"]{
+.avaliacoes .submit{
     width: 10%;
     height: 60px;
     background-color: #9D86BC;
 }
 
-.avaliacoes input[type="submit"]:hover{
+.avaliacoes .submit:hover{
     background-color: #281D40;
 }
 
@@ -399,17 +393,7 @@ h3{
     color: #ccc;
 }
 
-/*titulo*/
-
-#titulo {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    font-size: 5em;
-    font-family: Arial, sans-serif;
-    color: #ccc;
-}
+/*pg error*/
 
 .erro{
     display: flex;
@@ -428,6 +412,8 @@ h3{
     width: 100px;
     display: inline-block
 }
+
+/*botoes ed*/
   
 .adminButton{
     width: 150px;
@@ -449,6 +435,197 @@ h3{
     border-radius: 0%;
 }
 
-#cad{ /*editar isso*/
-    background-color: #000000;
+#cad, #orç{
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #281D40;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: 95%;
+}
+
+#orç a{
+    text-decoration: none;
+    color: #ccc;
+}
+  
+#cad:hover, #orç:hover {
+    background-color: #8F85A6;
+}
+
+/*orçamentos pendentes*/
+
+#pend{
+    width: 80%;
+}
+
+.pend {
+    display: inline-block;
+    background-color: #0D0D0D;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 5%;
+    width: 30%;
+    height: 20%;
+}
+  
+.pend h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #ccc;
+    text-align: left;
+}
+  
+.pend p {
+    font-size: 20px;
+    color: #ccc;
+    text-align: left;
+    width: 30%;
+}
+  
+.pend img {
+    width: 30%;
+    margin-bottom: 30px;
+}
+  
+.pend input{
+    width: 30%;
+}
+  
+.menuzito{
+    display: none;
+}
+
+.menuhito {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 30%;
+}
+  
+.menuhito li {
+    display: block;
+    margin-bottom: 10px;
+    align-items: center;
+}
+  
+.menuhito a {
+    display: block;
+    background-color: #9D86BC;
+    color: #e5dff3;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.aaaa {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20%;
+    width: 100px;
+}
+  
+.menuhito a:hover {
+    background-color: #333;
+    color: #fff;
+}
+  
+
+/*resposividade*/
+
+@media screen and (max-width: 350px) {
+    .login-screen {
+        width: 90%;
+    }
+
+    #galeria{
+        width: 100%;
+        display: block;
+        align-content: center;
+    }
+
+    #galeria img{
+        width: 40%;
+    }
+
+    .item{
+        margin-left: 30%;
+    }
+    
+    .tatuador{
+        width: 40%;
+        height: 40%;
+    }
+
+    .port{
+        position: static;
+        margin: 0%;
+    }
+
+    .portp{
+        margin: 0;
+    }
+    
+    .portp .perfil{
+        height: 50%;
+        width: 50%;
+        margin: 100px;
+    }
+    
+    .portfolio{
+        height: 40%;
+        width: 40%;
+        padding: 100px;
+    }
+
+    .pend{
+        margin: 0;
+        margin-bottom: 10%;
+        width: 70%;
+    }
+
+    .avaliacoes{
+        margin: 0;
+    }
+
+    .avaliacoes .input{
+        width: 150%;
+        margin-left: -30%;
+    }
+
+    .avaliacoes .submit{
+        width: 100%;
+    }
+
+    .avaliacao p{
+        width: 400px;
+    }
+
+    .menuzito{
+        display: block;
+        margin: auto;
+        margin-top: 20%;
+        background-color: inherit;
+        border: 0;
+    }
+
+    .menuzito img{
+        width: 100px;
+        height: 100px;
+    }
+
+    nav{
+        display: none;
+    }
+
+    .temp{
+        display: none;
+    }
+    
 }

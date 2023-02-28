@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-    			xmlns:ui="http://java.sun.com/jsf/facelets"
-    			xmlns:f="http://java.sun.com/jsf/core"
-    			xmlns:h="http://java.sun.com/jsf/html"
-    			template="/WEB-INF/templates/default.xhtml">		
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">		
     <ui:define name="content">
         
     <h:head>
@@ -17,34 +19,20 @@
     
     <h:body>
     	<div class="login-screen">
-    		<img src="resources/img/icon.png" />
-	        <h1>Login:</h1>
-	        
+    		<img src="resources/img/icon.png" style="margin: 20px;" />
 	        <h:form>
-              <input type="text" placeholder="E-mail" />
-              <input type="password" placeholder="Senha" />
-              <input type="submit" value="Entrar" />
-              
-            </h:form>
-	        
-	        <h:form>
-	            <h:panelGrid columns="2">
-	                <h:outputLabel for="login" value="Login:" />
-	                <h:inputText id="login" value="#{adminLoginController.admin.login}" />
-	
-					<h:outputLabel for="password" value="Senha:" />
-	                <h:inputText id="password" value="#{adminLoginController.admin.password}" />	
-	            </h:panelGrid>
+                <h:inputText id="login" class="input" a:placeholder="Email" value="#{adminLoginController.admin.login}" required="true" />
+                <h:inputSecret id="password" class="input" a:placeholder="Senha" value="#{adminLoginController.admin.password}" maxlength="16"
+                	required="true" requiredMessage="Informe uma Senha!" />
+                
+                <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning" globalOnly="true" />	
 				
-	            <p>
-	                <h:panelGrid columns="2">
-	                    <h:commandButton value="Login" action="#{adminLoginController.login}"/>
-	                    <h:messages styleClass="messages" errorClass="invalid" infoClass="valid" warnClass="warning" globalOnly="true" />
-	                </h:panelGrid>
-	            </p>
-	            
-	            <a href="cadastrar.html">Ainda não possui conta?</a>
+                <h:commandButton class="submit" value="Login" action="#{adminLoginController.login}"/>
 	        </h:form>
+	        <h:form>
+	        	<h:commandButton class="submit" value="Logout" action="#{adminLoginController.logout}"/>	                
+	        </h:form>
+	        <a href="register.xhtml">Ainda não possui conta?</a>
 	        <script src="resources/js/script.js"></script>
         </div>
 	</h:body>

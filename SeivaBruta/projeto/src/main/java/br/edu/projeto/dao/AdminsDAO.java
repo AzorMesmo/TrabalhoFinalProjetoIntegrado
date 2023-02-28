@@ -9,6 +9,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.primefaces.PrimeFaces;
+
 import br.edu.projeto.model.Admins;
 
 @Stateful
@@ -33,7 +35,7 @@ public class AdminsDAO{
     }
 
 	public List<Admins> listAll() {
-	    return em.createQuery("SELECT a FROM Usuario a ", Admins.class).getResultList();      
+	    return em.createQuery("SELECT a FROM Admins a ", Admins.class).getResultList();      
 	}
 	
 	public void save(Admins admin) {

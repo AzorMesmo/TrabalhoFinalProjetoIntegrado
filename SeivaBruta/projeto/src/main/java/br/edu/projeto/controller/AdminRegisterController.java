@@ -7,12 +7,14 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
 
 import org.primefaces.PrimeFaces;
+import org.primefaces.event.SelectEvent;
 
 import br.edu.projeto.dao.AdminsDAO;
 import br.edu.projeto.model.Admins;
@@ -38,9 +40,9 @@ public class AdminRegisterController implements Serializable {
 
     @PostConstruct
     public void init() {
-    	if (!adminDAO.isAdmin(this.facesContext.getExternalContext().getRemoteUser())) { // Possivel Problema: getRemoteUser
+    	if (!adminDAO.isAdmin(this.facesContext.getExternalContext().getRemoteUser())) { // Erro ?
     		try {
-				this.facesContext.getExternalContext().redirect("login-error.xhtml");
+				this.facesContext.getExternalContext().redirect("error.xhtml");
 			} catch (IOException e) {e.printStackTrace();}
     	}
     }
@@ -52,13 +54,16 @@ public class AdminRegisterController implements Serializable {
 	public void save() {
         if (isValid()) {
         	try {
+        		register();
         		this.admin.setPassword(this.passwordHash.generate(this.admin.getPassword().toCharArray()));
         		if (this.admin.getLogin() == null) {
 		        	this.adminDAO.save(this.admin);
 		        	this.facesContext.addMessage(null, new FacesMessage("Admin Cadastrado"));
+		        	this.facesContext.getExternalContext().redirect("index.xhtml");
 		        } else {
 		        	this.adminDAO.update(this.admin);
 		        	this.facesContext.addMessage(null, new FacesMessage("Admin Atualizado"));
+		        	this.facesContext.getExternalContext().redirect("index.xhtml");
 		        }
 		        this.adminList = adminDAO.listAll();
 			    PrimeFaces.current().executeScript("PF('usuarioDialog').hide()");
