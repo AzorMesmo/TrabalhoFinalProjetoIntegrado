@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    			xmlns:ui="http://java.sun.com/jsf/facelets"
+    			xmlns:f="http://java.sun.com/jsf/core"
+    			xmlns:h="http://java.sun.com/jsf/html"
+    			xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+    			template="/WEB-INF/templates/default.xhtml"
+                xmlns:p="http://primefaces.org/ui">		
+    <ui:define name="content">
+    
+    <h:head>
+        <meta charset="UTF-8"></meta>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css" media="screen"></link>
+        <link rel="icon" href="resources/img/icon.png" type="image/png"></link>
+        <script src="resources/js/script.js"></script>
+        <title>Visualizar Orcamento|SeivaBrutaTattoo</title>
+    </h:head>
+    
+    <h:body>
+        <div class="login-screen" id="pend">
+        	<h:form id="form">
+		        <p:dataTable id="dt-budget" widgetVar="dtBudget" var="bdg" value="#{budgetsDAO.listAll}">
+		            <p:column sortBy="#{bdg.date}">
+		            	<h:outputText value="#{bdg.owner}" />
+		            </p:column>
+		            <p:column>
+		            	<h:outputText value="#{bdg.size}" />
+		            </p:column>
+		            <p:column>
+		            	<h:outputText value="#{bdg.spot}" />
+		            </p:column>
+		            <p:column>
+		            	<h:graphicImage value="#{bdg.ref1}" />
+		            </p:column>
+		            <p:column>
+		            	<h:graphicImage value="#{bdg.ref2}" />
+		            </p:column>
+		            <p:column>
+		            	<h:graphicImage value="#{bdg.ref3}" />
+		            </p:column>
+		            <p:column>
+		            	<h:graphicImage value="#{bdg.ref4}" />
+		            </p:column>
+		            <p:column>
+		            	<h:graphicImage value="#{bdg.ref5}" />
+		            </p:column>
+		            <p:column>
+		            	<h:inputText id="price" class="input" a:placeholder="Preço" value="#{budgetRegisterController.budget.price}" required="true" />
+		            </p:column>
+		             <p:column>
+		            	<h:commandButton action="#{budgetRegisterController.update}" process="@this">
+		                    <f:setPropertyActionListener value="#{bdg}" target="#{budgetRegisterController.budget}" />
+		                </h:commandButton>
+		            </p:column>
+		        </p:dataTable>
+		    </h:form>
+        </div>
+    </h:body>
+    
+    </ui:define>
+</ui:composition>

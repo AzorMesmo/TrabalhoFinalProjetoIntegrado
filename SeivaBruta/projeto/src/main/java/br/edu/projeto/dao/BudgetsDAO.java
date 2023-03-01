@@ -16,6 +16,7 @@ import br.edu.projeto.model.Admins;
 @Stateful
 public class BudgetsDAO implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	@Inject
     private EntityManager em;
 	

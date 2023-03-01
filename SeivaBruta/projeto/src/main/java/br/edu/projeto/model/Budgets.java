@@ -45,23 +45,23 @@ public class Budgets {
 	
 	@NotNull
     @NotEmpty
-	@Column(name = "ref1")
+	@Column(name = "ref_1")
 	@Size(min = 1, max = 256, message = "O link 1 deve ter no máximo 256 caracteres.")
     private String ref1;
 	
-	@Column(name = "ref2")
+	@Column(name = "ref_2")
 	@Size(min = 1, max = 256, message = "O link 2 deve ter no máximo 256 caracteres.")
     private String ref2;
 	
-	@Column(name = "ref3")
+	@Column(name = "ref_3")
 	@Size(min = 1, max = 256, message = "O link 3 deve ter no máximo 256 caracteres.")
     private String ref3;
 	
-	@Column(name = "ref4")
+	@Column(name = "ref_4")
 	@Size(min = 1, max = 256, message = "O link 4 deve ter no máximo 256 caracteres.")
     private String ref4;
 	
-	@Column(name = "ref5")
+	@Column(name = "ref_5")
 	@Size(min = 1, max = 256, message = "O link 5 deve ter no máximo 256 caracteres.")
     private String ref5;
     

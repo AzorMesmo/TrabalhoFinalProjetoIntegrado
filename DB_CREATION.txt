@@ -11,6 +11,8 @@ CREATE TABLE IF NOT EXISTS public.admins
 	CONSTRAINT pk_admin PRIMARY KEY (login)
 );
 
+INSERT INTO admins (login, password, name, description, picture, contact) VALUES ('alexandre', 'penteado', 'Alexandre Penteado', 'Sou tatuador há 15 anos, meu estilo favorito é Black Work ms também gosto de Realismo', '@alexandre.tattooer');
+
 CREATE TABLE IF NOT EXISTS public.users
 (
 	email VARCHAR(128),
@@ -19,6 +21,8 @@ CREATE TABLE IF NOT EXISTS public.users
 	phone INT NOT NULL,
 	CONSTRAINT pk_user PRIMARY KEY (email)
 );
+
+INSERT INTO users (email, password, name, phone) VALUES ('thailathailathaila@gmail.com', 'thaila', 'Thaila Cavalheiro', '4998563214');
 
 CREATE TABLE IF NOT EXISTS public.budgets
 (
@@ -38,6 +42,8 @@ CREATE TABLE IF NOT EXISTS public.budgets
 	CONSTRAINT fk_budget_delegate FOREIGN KEY (delegate) REFERENCES admins (login)
 );
 
+INSERT INTO budgets (owner, size, spot, ref_1) VALUES ('thailathailathaila@gmail.com', '22cm', 'Costas', 'https://i.imgur.com/M1nMYyh.jpeg');
+
 CREATE TABLE IF NOT EXISTS public.portfolios
 (
 	link VARCHAR(256),
@@ -47,6 +53,8 @@ CREATE TABLE IF NOT EXISTS public.portfolios
 	CONSTRAINT pk_portfolio PRIMARY KEY (link),
 	CONSTRAINT fk_portfolio_owner FOREIGN KEY (owner) REFERENCES admins (login)
 );
+
+INSERT INTO portfolios (link, date, highlight, owner) VALUES ('https://i.imgur.com/E0UFkmo.jpeg', current_timestamp, false, 'alexandre');
 
 CREATE TABLE IF NOT EXISTS public.reviews
 (
@@ -58,6 +66,8 @@ CREATE TABLE IF NOT EXISTS public.reviews
 	CONSTRAINT pk_review PRIMARY KEY (id),
 	CONSTRAINT fk_review_owner FOREIGN KEY (owner) REFERENCES users (email)
 );
+
+INSERT INTO reviews (rating, description, date, owner) VALUES (4, 'Recomendo!', current_timestamp, 'thailathailathaila@gmail.com');
 
 CREATE TABLE IF NOT EXISTS public.events
 (

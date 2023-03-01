@@ -22,7 +22,7 @@
         	<p:growl id="messages"/>
 	        <p:dialog header="Adicionar Imagem" showEffect="fade" modal="true" widgetVar="portfolioDialog" responsive="true">   
 	            <p:outputPanel id="portfolio-dialog" class="ui-fluid">
-	                <p:outputPanel rendered="#{not empty registerAdminController.login}">
+	                <p:outputPanel>
 	                    <div class="field">
 	                        <p:outputLabel for="link">Link</p:outputLabel>
 	                        <p:inputText id="link" value="#{portfolioRegisterController.portfolio.link}" required="true" />
@@ -46,7 +46,7 @@
                 <img class="perfil" src="resources/img/pessoa.png"></img>
             </button>
             <ul id="minhaLista" style="display:none;">
-                <h:form id="form">
+                <h:form id="formp">
 			        <p:dataTable id="dt-portfolio" widgetVar="dtPortfolio" var="port" value="#{portfolioDAO.listAll}">
 			            <p:column sortBy="#{port.date}">
 			            	<h:graphicImage class="portfolio" value="#{port.link}" />
@@ -65,7 +65,7 @@
             </ul>
             <p:commandButton value="Adicionar Imagem" icon="pi pi-plus" actionListener="#{portfolioRegisterController.register}"
 	            update=":dialogs:portfolio-dialog" oncomplete="PF('portfolioDialog').show()" styleClass="ui-button-success"
-	            class="adminButton" style="display:none;">
+	            class="submit" style="background-color: #6a5acd; max-width: 20%;">
 	            <p:resetInput target=":dialogs:portfolio-dialog" />
 	        </p:commandButton>
         </div>

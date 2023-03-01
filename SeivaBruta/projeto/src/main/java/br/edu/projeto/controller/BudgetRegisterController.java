@@ -55,7 +55,12 @@ public class BudgetRegisterController implements Serializable {
 	public void update() {
 		this.budgetDAO.update(this.budget);
 		this.facesContext.addMessage(null, new FacesMessage("Orçamento Editado"));
-		this.facesContext.getExternalContext().redirect("view_budget.xhtml");
+		try {
+			this.facesContext.getExternalContext().redirect("view_budget.xhtml");
+		} catch (Exception e) {
+			String errorMessage = getErrorMessage(e);
+            this.facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, null));
+		}
 	}
 	
 	public void delete() {

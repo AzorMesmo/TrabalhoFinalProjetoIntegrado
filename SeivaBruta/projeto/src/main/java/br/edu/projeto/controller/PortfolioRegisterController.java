@@ -31,9 +31,6 @@ public class PortfolioRegisterController implements Serializable {
 	private FacesContext facesContext;
 	
 	@Inject
-    transient private Pbkdf2PasswordHash passwordHash;
-	
-	@Inject
     private PortfolioDAO portfolioDAO;
 	
 	private Portfolios portfolio;
@@ -49,6 +46,7 @@ public class PortfolioRegisterController implements Serializable {
     		this.portfolio.setDate(new Timestamp(System.currentTimeMillis()));
     		this.portfolio.setHighlight(false);
     		this.portfolio.setOwner(this.facesContext.getExternalContext().getRemoteUser());
+    		this.portfolioDAO.save(this.portfolio);
         	this.facesContext.addMessage(null, new FacesMessage("Imagem Enviada"));
         	this.facesContext.getExternalContext().redirect("portfolio.xhtml");
         } catch (Exception e) {

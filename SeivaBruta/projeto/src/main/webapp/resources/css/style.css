@@ -9,7 +9,7 @@ button img{
   
 /*dropdown*/
 
-.form-dropdown {
+.form-dropdown{
     display: inline-block;
     border-radius: 5px;
     border: none;
@@ -17,11 +17,14 @@ button img{
     width: 100%;
     background-color: white;
     text-align: left;
+	padding: 50px;
 }
   
 .select-dropdown {
     padding: 8px 38px 8px 8px;
+    margin-bottom: 10px;
     font-size: 14px;
+    width: 95%;
     border: 1px solid #ccc;
     border-radius: 4px;
     -webkit-appearance: none;
