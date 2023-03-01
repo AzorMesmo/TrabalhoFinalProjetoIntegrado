@@ -1,0 +1,143 @@
+-- DROP TABLE admins, users, budgets, portfolios, reviews, events;
+
+CREATE USER seivabruta PASSWORD 'seivabruta';
+
+CREATE TABLE IF NOT EXISTS public.admins
+(
+	login VARCHAR(32),
+	password VARCHAR(128) NOT NULL,
+	name VARCHAR(64) NULL,
+	description VARCHAR(512) NULL,
+	picture VARCHAR(256) NULL,
+	contact VARCHAR(128) NULL,
+	CONSTRAINT pk_admin PRIMARY KEY (login)
+);
+
+-- As senhas seriam inseridas com criptografia pela aplicação.
+
+INSERT INTO admins (login, password, name, description, picture, contact) VALUES
+	('alexandre', 'penteado', 'Alexandre Penteado', 'Sou tatuador há 15 anos, meu estilo favorito é Realismo.', 'https://i.imgur.com/n8sVF0o.jpeg', '@alexandre.tattooer'),
+	('karine', 'doarte', 'Karine Doarte', 'Sou tatuadora há 13 anos, meu estilo favorito é Black Work.', 'https://i.imgur.com/AD3MbBi.jpeg', '@katzentattoo'),
+	('rodrigo', 'fernando', 'Rodrigo Fernando', 'Sou tatuador há 8 anos, meu estilo favorito é Tribal.', 'https://i.imgur.com/eiKLK2Q.jpeg', '@rodferod'),
+	('marco', 'antonio', 'Marco Antonio', 'Sou tatuador há 25 anos, meu estilo favorito é LineArt.', 'https://i.imgur.com/IZIN9zA.jpeg', '@marcct'),
+	('luciana', 'donny', 'Luciana Donny', 'Sou tatuadora há 18 anos, meu estilo favorito é Anime.', 'https://i.imgur.com/EFCEQQf.jpeg', '@ludonny'),
+	('bruno', 'vinicius', 'Bruno Vinicius', 'Sou tatuador há 3 anos, meu estilo favorito é Anime.', 'https://i.imgur.com/a7s4g5B.jpeg', '@brunobrunobruno'),
+	('luciano', 'almeida', 'Luciano Almeida', 'Sou tatuador há 8 anos, meu estilo favorito é Black Work.', 'https://i.imgur.com/H981AN7.jpeg', '@lucoo'),
+	('marina', 'seixas', 'Marina Seixas', 'Sou tatuadora há 6 anos, meu estilo favorito é Realismo.', 'https://i.imgur.com/XgbZdeA.jpeg', '@maseix'),
+	('vitoria', 'machado', 'Vitoria Machado', 'Sou tatuadora há 21 anos, meu estilo favorito é LineArt.', 'https://i.imgur.com/OHIQCdC.jpeg', '@vicmac'),
+	('lucas', 'tales', 'Lucas Tales', 'Sou tatuador há 9 anos, meu estilo favorito é Tribal.', 'https://i.imgur.com/yznJhMU.jpeg', '@lucaotl');
+
+CREATE TABLE IF NOT EXISTS public.users
+(
+	email VARCHAR(128),
+	password VARCHAR(128) NOT NULL,
+	name VARCHAR(64) NOT NULL,
+	phone BIGINT NOT NULL,
+	CONSTRAINT pk_user PRIMARY KEY (email)
+);
+
+INSERT INTO users (email, password, name, phone) VALUES
+	('thailathailathaila@gmail.com', 'thaila', 'Thaila Cavalheiro', '4987562145'),
+	('azorazorazor@gmail.com', 'azor', 'Mateus Azor', '11985697485'),
+	('helena@gmail.com', 'helena', 'Helena Cavalheiro', '2185634785'),
+	('carlos@gmail.com', 'carlos', 'Carlos Henrique', '8596472356'),
+	('thiago@gmail.com', 'thiago', 'Thiago Secru', '17485123698'),
+	('mucalol@gmail.com', 'muquinha', 'Muca Muric', '11974852365'),
+	('eoranger@gmail.com', 'rangerranger', 'Ranger Filho', '2354869745'),
+	('netunodif@gmail.com', 'tomadif', 'Netuno Gap', '4718469785'),
+	('mario@gmail.com', 'mario', 'Mario Vario', '3254698215'),
+	('pedro@gmail.com', 'pedro', 'Helena Lanca', '9248536278');
+
+CREATE TABLE IF NOT EXISTS public.budgets
+(
+	id SERIAL,
+	owner VARCHAR(128) NOT NULL,
+	size VARCHAR(64) NOT NULL,
+	spot VARCHAR(128) NOT NULL,
+	ref_1 VARCHAR(256) NOT NULL,
+	ref_2 VARCHAR(256) NULL,
+	ref_3 VARCHAR(256) NULL,
+	ref_4 VARCHAR(256) NULL,
+	ref_5 VARCHAR(256) NULL,
+	delegate VARCHAR(32) NULL,
+	price FLOAT(2) NULL,
+	CONSTRAINT pk_budget PRIMARY KEY (id),
+	CONSTRAINT fk_budget_owner FOREIGN KEY (owner) REFERENCES users (email),
+	CONSTRAINT fk_budget_delegate FOREIGN KEY (delegate) REFERENCES admins (login)
+);
+
+INSERT INTO budgets (owner, size, spot, ref_1) VALUES
+	('thailathailathaila@gmail.com', '22cm', 'Costas', 'https://i.imgur.com/M1nMYyh.jpeg'),
+	('azorazorazor@gmail.com', '5cm', 'Rosto', 'https://i.imgur.com/6mxB2hP.jpeg'),
+	('azorazorazor@gmail.com', '20cm', 'Coxa', 'https://i.imgur.com/Y48lfk0.jpeg'),
+	('netunodif@gmail.com', '8cm', 'Panturrilha', 'https://i.imgur.com/fnqv417.jpeg'),
+	('eoranger@gmail.com', '6cm', 'Mão', 'https://i.imgur.com/pojcTxy.jpeg'),
+	('thiago@gmail.com', '42cm', 'Braço', 'https://i.imgur.com/I5F5TJf.jpeg');
+INSERT INTO budgets (owner, size, spot, ref_1, ref_2) VALUES
+	('helena@gmail.com', '13cm', 'Antebraço', 'https://i.imgur.com/wcxV5Ob.jpeg', 'https://i.imgur.com/Tibakjr.jpeg'),
+	('netunodif@gmail.com', '36cm', 'Peito', 'https://i.imgur.com/TSEjZbd.jpeg', 'https://i.imgur.com/1hoLRRB.jpeg'),
+	('pedro@gmail.com', '2cm', 'Pé', 'https://i.imgur.com/XMgVZQL.jpeg', 'https://i.imgur.com/9Q1DR3b.jpeg');
+INSERT INTO budgets (owner, size, spot, ref_1, ref_2, ref_3) VALUES
+	('mario@gmail.com', '7cm', 'Pescoço', 'https://i.imgur.com/1sRz7Xp.jpeg', 'https://i.imgur.com/hdhm22w.jpeg', 'https://i.imgur.com/2rwgUAS.jpeg');
+
+CREATE TABLE IF NOT EXISTS public.portfolios
+(
+	link VARCHAR(256),
+	date TIMESTAMP NOT NULL,
+	highlight BOOLEAN NOT NULL,
+	owner VARCHAR(32) NOT NULL,
+	CONSTRAINT pk_portfolio PRIMARY KEY (link),
+	CONSTRAINT fk_portfolio_owner FOREIGN KEY (owner) REFERENCES admins (login)
+);
+
+INSERT INTO portfolios (link, date, highlight, owner) VALUES
+	('https://i.imgur.com/E0UFkmo.jpeg', current_timestamp, true, 'alexandre'),
+	('https://i.imgur.com/AJA8fTp.jpeg', current_timestamp, false, 'alexandre'),
+	('https://i.imgur.com/Mp4rfSy.jpeg', current_timestamp, false, 'alexandre'),
+	('https://i.imgur.com/odCWegv.jpeg', current_timestamp, true, 'rodrigo'),
+	('https://i.imgur.com/FUeNb7X.jpeg', current_timestamp, false, 'rodrigo'),
+	('https://i.imgur.com/1Zwdw0D.jpeg', current_timestamp, false, 'luciana'),
+	('https://i.imgur.com/1xeibxk.jpeg', current_timestamp, true, 'karine'),
+	('https://i.imgur.com/TJVOl4R.jpeg', current_timestamp, false, 'karine'),
+	('https://i.imgur.com/i6RxTIO.jpeg', current_timestamp, false, 'luciano'),
+	('https://i.imgur.com/7RrqURJ.jpeg', current_timestamp, true, 'vitoria');
+
+CREATE TABLE IF NOT EXISTS public.reviews
+(
+	id SERIAL,
+	rating SMALLINT NOT NULL,
+	description varchar(512) NULL,
+	date TIMESTAMP NOT NULL,
+	owner VARCHAR(128) NOT NULL,
+	CONSTRAINT pk_review PRIMARY KEY (id),
+	CONSTRAINT fk_review_owner FOREIGN KEY (owner) REFERENCES users (email)
+);
+
+INSERT INTO reviews (rating, description, date, owner) VALUES
+	(5, 'Recomendo!', current_timestamp, 'thailathailathaila@gmail.com'),
+	(4, 'Muito Bom', current_timestamp, 'azorazorazor@gmail.com'),
+	(2, 'Meh..', current_timestamp, 'pedro@gmail.com'),
+	(3, 'Gostei', current_timestamp, 'mucalol@gmail.com'),
+	(4, 'Ficou linda!', current_timestamp, 'azorazorazor@gmail.com'),
+	(3, 'Bom', current_timestamp, 'thiago@gmail.com'),
+	(1, 'Achei podre.', current_timestamp, 'eoranger@gmail.com'),
+	(5, 'Incrível!!!', current_timestamp, 'netunodif@gmail.com'),
+	(4, 'Gostei muito', current_timestamp, 'mario@gmail.com'),
+	(3, 'Legal', current_timestamp, 'helena@gmail.com');
+
+CREATE TABLE IF NOT EXISTS public.events
+(
+	name VARCHAR(128),
+	description varchar(512) NOT NULL,
+	t_start TIMESTAMP NOT NULL,
+	t_end TIMESTAMP NULL,
+	CONSTRAINT pk_event PRIMARY KEY (name)
+);
+
+INSERT INTO events (name, description, t_start) VALUES
+	('Old School Week', 'Old Schools 20% Off', current_timestamp);
+
+INSERT INTO admins (login, password) VALUES ('admin', 'admin');
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA "public" to seivabruta;
+GRANT SELECT, USAGE, UPDATE ON ALL SEQUENCES IN SCHEMA "public" to seivabruta;
