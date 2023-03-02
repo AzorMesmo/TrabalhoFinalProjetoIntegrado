@@ -1,5 +1,7 @@
 -- DROP TABLE admins, users, budgets, portfolios, reviews, events;
 
+CREATE DATABASE SeivaBruta;
+
 CREATE USER seivabruta PASSWORD 'seivabruta';
 
 CREATE TABLE IF NOT EXISTS public.admins
